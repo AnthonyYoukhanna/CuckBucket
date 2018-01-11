@@ -23,7 +23,7 @@ namespace Minesweeper
 
         private void startGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            //
         }
 
         private void easyToolStripMenuItem_Click(object sender, EventArgs e)
