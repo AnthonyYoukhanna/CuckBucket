@@ -31,7 +31,7 @@ namespace Minesweeper
            this.mBorderColour = BorderColour;
        }
 
-       //Methods
+       //Methods 
        public void Draw(Graphics g, int X, int Y)
        {
            //will draw a cell on graphics object
