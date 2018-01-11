@@ -15,7 +15,7 @@ namespace Minesweeper
        private Color mBorderColour;
        private bool mBomb;
        private int mBombCount;
-
+       Rectangle Padding = new Rectangle(0, 0, 30, 30);
 
        public Tile()
        {
@@ -40,10 +40,10 @@ namespace Minesweeper
 
            //create a pen and a brush to draw with
            Pen BorderPen = new Pen(this.mBorderColour);
-           SolidBrush BackBrush = new SolidBrush(this.mBackgroundColour);
+           TextureBrush BackBrush = new TextureBrush(Resource1._76px_Minesweeper_unopened_square_svg, Padding);
 
            //draw cell
-           g.FillRectangle(BackBrush, X, Y + 20, this.mSize, this.mSize);
+           g.FillRectangle(BackBrush, X, Y - 20, this.mSize, this.mSize);
            g.DrawRectangle(BorderPen, X, Y + 20, this.mSize, this.mSize);
             
 
