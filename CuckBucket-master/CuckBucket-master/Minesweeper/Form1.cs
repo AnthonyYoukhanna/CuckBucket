@@ -71,8 +71,8 @@ namespace Minesweeper
                     }
                     else
                     {
-
-                        ClearSpace(Y,X);
+                        //Change(Y, X);
+                        ClearSpace(Y, X);
                         this.Refresh();
                     }
 
@@ -91,6 +91,7 @@ namespace Minesweeper
                     }
                     else
                     {
+                        //Change(Y, X);
                         ClearSpace(Y, X);
                         this.Refresh();
                     }
@@ -98,6 +99,101 @@ namespace Minesweeper
             }
         }
 
+    //    ///////////////////////////////////////////////////////////////////////////////////////
+    //    public void Fuck(int i, int j)
+    //    {
+
+    //        //change image
+    //        if (SweepGrid.GetTile(i, j).BombCount == 1)
+    //        {
+    //            SweepGrid.GetTile(i, j).BackgroundColour = Resource1._76px_Minesweeper_1_svg;
+    //        }
+    //        if (SweepGrid.GetTile(i, j).BombCount == 2)
+    //        {
+    //            SweepGrid.GetTile(i, j).BackgroundColour = Resource1._76px_Minesweeper_2_svg;
+    //        }
+    //        if (SweepGrid.GetTile(i, j).BombCount == 3)
+    //        {
+    //            SweepGrid.GetTile(i, j).BackgroundColour = Resource1._76px_Minesweeper_3_svg;
+    //        }
+    //        if (SweepGrid.GetTile(i, j).BombCount == 4)
+    //        {
+    //            SweepGrid.GetTile(i, j).BackgroundColour = Resource1.Minesweeper_4_svg;
+    //        }
+    //        if (SweepGrid.GetTile(i, j).BombCount == 5)
+    //        {
+    //            SweepGrid.GetTile(i, j).BackgroundColour = Resource1._76px_Minesweeper_5_svg;
+    //        }
+    //        if (SweepGrid.GetTile(i, j).BombCount == 6)
+    //        {
+    //            SweepGrid.GetTile(i, j).BackgroundColour = Resource1._76px_Minesweeper_6_svg;
+    //        }
+    //        if (SweepGrid.GetTile(i, j).BombCount == 7)
+    //        {
+    //            SweepGrid.GetTile(i, j).BackgroundColour = Resource1._76px_Minesweeper_7_svg;
+    //        }
+    //        if (SweepGrid.GetTile(i, j).BombCount == 8)
+    //        {
+    //            SweepGrid.GetTile(i, j).BackgroundColour = Resource1._76px_Minesweeper_8_svg;
+    //        }
+
+
+    //    }
+
+    ///// ////////////////////////////////////////////////////////////////////
+    //    public int Change(int i, int j)
+    //    {
+    //        if (i < 0 || j < 0 || i >= 9 || j >= 9)
+    //        {
+    //            return SweepGrid.GetTile(i, j).BombCount;
+    //        }
+    //        if (SweepGrid.GetTile(i,j).Bomb == true)
+    //        {
+    //            return 0;
+    //        }
+    //        if (SweepGrid.GetTile(i, j).BackgroundColour == Resource1._76px_Minesweeper_0_svg)
+    //        {
+    //            if (SweepGrid.GetTile(i + 1, j).BackgroundColour == Resource1.Bomb)
+    //            {
+    //                return SweepGrid.GetTile(i, j).BombCount++;
+    //            }
+    //            if (SweepGrid.GetTile(i + 1, j + 1).BackgroundColour == Resource1.Bomb)
+    //            {
+    //                return SweepGrid.GetTile(i, j).BombCount++;
+    //            }
+    //            if (SweepGrid.GetTile(i + 1, j - 1).BackgroundColour == Resource1.Bomb)
+    //            {
+    //                return SweepGrid.GetTile(i, j).BombCount++;
+    //            }
+    //            if (SweepGrid.GetTile(i - 1, j).BackgroundColour == Resource1.Bomb)
+    //            {
+    //                return SweepGrid.GetTile(i, j).BombCount++;
+    //            }
+    //            if (SweepGrid.GetTile(i - 1, j + 1).BackgroundColour == Resource1.Bomb)
+    //            {
+    //                return SweepGrid.GetTile(i, j).BombCount++;
+    //            }
+    //            if (SweepGrid.GetTile(i - 1, j - 1).BackgroundColour == Resource1.Bomb)
+    //            {
+    //                return SweepGrid.GetTile(i, j).BombCount++;
+    //            }
+    //            if (SweepGrid.GetTile(i, j + 1).BackgroundColour == Resource1.Bomb)
+    //            {
+    //                return SweepGrid.GetTile(i, j).BombCount++;
+    //            }
+    //            if (SweepGrid.GetTile(i, j - 1).BackgroundColour == Resource1.Bomb)
+    //            {
+    //                return SweepGrid.GetTile(i, j).BombCount++;
+    //            }
+    //            Fuck(i, j);
+    //        }
+
+          
+    //            return 0;
+               
+        
+    //    }
+       
         public void ClearSpace(int r, int c)
         {
             ////////////////////////////////////////////////////

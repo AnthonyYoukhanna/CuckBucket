@@ -77,16 +77,212 @@ namespace Minesweeper
                 }   
             }
 
-            BombCount(0);
-
             for (int i = 0; i < mGrid.GetLength(0); i++)
             {
                 for (int j = 0; j < mGrid.GetLength(1); j++)
                 {
-                    if (mGrid[i,j].BombCount > 0)
+                    if (i == 0)
                     {
-                         //change image
-                        if (mGrid[i,j].BombCount == 1)
+                        if (j == 0)
+                        {
+                            if (mGrid[i, j + 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i + 1, j].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i + 1, j + 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+
+                        }
+                        else if (j == mGrid.GetLength(1) - 1)
+                        {
+                            if (mGrid[i + 1, j].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i + 1, j - 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i, j - 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+
+                        }
+                        else
+                        {
+                            if (mGrid[i, j - 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i, j + 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i + 1, j - 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i + 1, j].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i + 1, j + 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                        }
+
+                    }
+                    else if (i == mGrid.GetLength(0) - 1)
+                    {
+                        if (j == 0)
+                        {
+                            if (mGrid[i - 1, j].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i - 1, j + 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i, j + 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                        }
+                        if (j == mGrid.GetLength(1) - 1)
+                        {
+                            if (mGrid[i - 1, j - 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i - 1, j].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i, j - 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                        }
+                        else
+                        {
+                            if (mGrid[i - 1, j].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i - 1, j].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i, j].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i - 1, j + 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i, j + 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (j == 0)
+                        {
+                            if (mGrid[i - 1, j].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i - 1, j + 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i, j + 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i + 1, j].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i + 1, j + 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                        }
+                        else if (j == mGrid.GetLength(1) - 1)
+                        {
+                            if (mGrid[i - 1, j - 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i - 1, j].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i, j - 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i + 1, j - 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i + 1, j].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+
+                        }
+                        else
+                        {
+                            if (mGrid[i - 1, j - 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i - 1, j].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i - 1, j + 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i, j - 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i, j + 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i + 1, j - 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i + 1, j].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+                            if (mGrid[i + 1, j + 1].Bomb == true)
+                            {
+                                mGrid[i, j].BombCount++;
+                            }
+
+                        }
+                        //Fuck(i, j);mGrid[i, j].BombCount++
+                        if (mGrid[i, j].BombCount == 1)
                         {
                             mGrid[i, j].BackgroundColour = Resource1._76px_Minesweeper_1_svg;
                         }
@@ -118,10 +314,14 @@ namespace Minesweeper
                         {
                             mGrid[i, j].BackgroundColour = Resource1._76px_Minesweeper_8_svg;
                         }
-
                     }
+
                 }
+
+
+
             }
+            
        }
 
        //Methods
@@ -150,223 +350,101 @@ namespace Minesweeper
                }
            }
        }
-       public int BombCount(int Bombs)
-       {
-           for (int i = 0; i < mGrid.GetLength(0); i++)
-           {
-               for (int j = 0; j < mGrid.GetLength(1); j++)
-               {
-                   if (i == 0)
-                   {
-                       if (j==0)
-                       {
-                           if (mGrid[i, j + 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i + 1, j].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i + 1, j + 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
 
-                       }
-                       else if (j == mGrid.GetLength(1) - 1)
-                       {
-                           if (mGrid[i + 1, j].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i + 1, j - 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i, j - 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
+       ///////////////////////////////////////////////////////////////////////////////////////
+       //public void Fuck(int i, int j)
+       //{
 
-                       }
-                       else
-                       {
-                           if (mGrid[i, j - 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i, j + 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i + 1, j - 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i + 1, j].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i + 1, j + 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                       }
-                       
-                   }
-                   else if (i == mGrid.GetLength(0) - 1)
-                   {
-                       if (j == 0)
-                       {
-                           if (mGrid[i - 1, j].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i - 1, j + 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i, j + 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                       }
-                       if (j == mGrid.GetLength(1) - 1)
-                       {
-                           if (mGrid[i - 1, j - 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i - 1, j].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i, j - 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                       }
-                       else
-                       {
-                           if (mGrid[i - 1, j].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i - 1, j].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i, j].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i - 1, j + 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i, j + 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                       }
-                   }
-                   else
-                   {
-                       if (j == 0)
-                       {
-                           if (mGrid[i - 1, j].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i - 1, j + 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i, j + 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i + 1, j].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i + 1, j + 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                       }
-                       else if (j == mGrid.GetLength(1) - 1)
-                       {
-                           if (mGrid[i - 1, j - 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i - 1, j].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i, j - 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i + 1, j - 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i + 1, j].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                          
-                       }
-                       else
-                       {
-                           if (mGrid[i - 1, j - 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i - 1, j].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i - 1, j + 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i, j - 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i, j + 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i + 1, j - 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i + 1, j].Bomb == true)
-                           {
-                               Bombs++;
-                           }
-                           if (mGrid[i + 1, j + 1].Bomb == true)
-                           {
-                               Bombs++;
-                           }
- 
-                       }
-                   }
-                  
-                   mGrid[i, j].BombCount = Bombs;
-                   Bombs = 0;
-               }
-               
-               
-           }
-           return Bombs;
-           
-       }
+       //    //change image
+       //    if (mGrid.GetTile(i, j).BombCount == 1)
+       //    {
+       //        mGrid.GetTile(i, j).BackgroundColour = Resource1._76px_Minesweeper_1_svg;
+       //    }
+       //    if (mGrid.GetTile(i, j).BombCount == 2)
+       //    {
+       //        mGrid.GetTile(i, j).BackgroundColour = Resource1._76px_Minesweeper_2_svg;
+       //    }
+       //    if (mGrid.GetTile(i, j).BombCount == 3)
+       //    {
+       //        mGrid.GetTile(i, j).BackgroundColour = Resource1._76px_Minesweeper_3_svg;
+       //    }
+       //    if (mGrid.GetTile(i, j).BombCount == 4)
+       //    {
+       //        mGrid.GetTile(i, j).BackgroundColour = Resource1.Minesweeper_4_svg;
+       //    }
+       //    if (mGrid.GetTile(i, j).BombCount == 5)
+       //    {
+       //        mGrid.GetTile(i, j).BackgroundColour = Resource1._76px_Minesweeper_5_svg;
+       //    }
+       //    if (mGrid.GetTile(i, j).BombCount == 6)
+       //    {
+       //        mGrid.GetTile(i, j).BackgroundColour = Resource1._76px_Minesweeper_6_svg;
+       //    }
+       //    if (mGrid.GetTile(i, j).BombCount == 7)
+       //    {
+       //        mGrid.GetTile(i, j).BackgroundColour = Resource1._76px_Minesweeper_7_svg;
+       //    }
+       //    if (mGrid.GetTile(i, j).BombCount == 8)
+       //    {
+       //        mGrid.GetTile(i, j).BackgroundColour = Resource1._76px_Minesweeper_8_svg;
+       //    }
 
+
+       //}
+
+       /// ////////////////////////////////////////////////////////////////////
+       //public int Change(int i, int j)
+       //{
+       //    if (i < 0 || j < 0 || i >= 9 || j >= 9)
+       //    {
+       //        return mGrid.GetTile(i, j).BombCount;
+       //    }
+       //    if (mGrid.GetTile(i, j).Bomb == true)
+       //    {
+       //        return 0;
+       //    }
+       //    if (mGrid.GetTile(i, j).BackgroundColour == Resource1._76px_Minesweeper_0_svg)
+       //    {
+       //        if (mGrid.GetTile(i + 1, j).BackgroundColour == Resource1.Bomb)
+       //        {
+       //            return mGrid.GetTile(i, j).BombCount++;
+       //        }
+       //        if (mGrid.GetTile(i + 1, j + 1).BackgroundColour == Resource1.Bomb)
+       //        {
+       //            return mGrid.GetTile(i, j).BombCount++;
+       //        }
+       //        if (mGrid.GetTile(i + 1, j - 1).BackgroundColour == Resource1.Bomb)
+       //        {
+       //            return mGrid.GetTile(i, j).BombCount++;
+       //        }
+       //        if (mGrid.GetTile(i - 1, j).BackgroundColour == Resource1.Bomb)
+       //        {
+       //            return mGrid.GetTile(i, j).BombCount++;
+       //        }
+       //        if (mGrid.GetTile(i - 1, j + 1).BackgroundColour == Resource1.Bomb)
+       //        {
+       //            return mGrid.GetTile(i, j).BombCount++;
+       //        }
+       //        if (mGrid.GetTile(i - 1, j - 1).BackgroundColour == Resource1.Bomb)
+       //        {
+       //            return mGrid.GetTile(i, j).BombCount++;
+       //        }
+       //        if (mGrid.GetTile(i, j + 1).BackgroundColour == Resource1.Bomb)
+       //        {
+       //            return mGrid.GetTile(i, j).BombCount++;
+       //        }
+       //        if (mGrid.GetTile(i, j - 1).BackgroundColour == Resource1.Bomb)
+       //        {
+       //            return mGrid.GetTile(i, j).BombCount++;
+       //        }
+       //        Fuck(i, j);
+       //    }
+
+
+       //    return 0;
+
+
+       //}
+       
     }
 }

@@ -10,7 +10,6 @@ namespace Minesweeper
    public class Tile
     {
        private int mSize;
-       private bool mSelected;
        private Bitmap mBackgroundColour;
        private Bitmap mForegroundColour;
        private Color mBorderColour;
@@ -25,6 +24,7 @@ namespace Minesweeper
            this.mBackgroundColour = Resource1._76px_Minesweeper_0_svg;
            this.mForegroundColour = Resource1._76px_Minesweeper_unopened_square_svg;
            this.mBorderColour = Color.White;
+           
        }
 
        public Tile(int Size, Bitmap BackgroundColour, Color BorderColour)
@@ -84,12 +84,6 @@ namespace Minesweeper
 
         }
        
-        public bool Selected
-        {
-            set { this.mSelected = value; }
-            get { return this.mSelected; }
-
-        }
         public bool Bomb
         {
             set { this.mBomb = value; }
