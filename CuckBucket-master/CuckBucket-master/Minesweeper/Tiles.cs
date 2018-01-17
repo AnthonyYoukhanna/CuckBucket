@@ -24,6 +24,7 @@ namespace Minesweeper
            this.mBackgroundColour = Resource1._76px_Minesweeper_0_svg;
            this.mForegroundColour = Resource1._76px_Minesweeper_unopened_square_svg;
            this.mBorderColour = Color.White;
+
            
        }
 
@@ -33,6 +34,7 @@ namespace Minesweeper
            this.mBackgroundColour = BackgroundColour;
            this.mBorderColour = BorderColour;
            this.mForegroundColour = ForegroundColour;
+
        }
 
        //Methods 
