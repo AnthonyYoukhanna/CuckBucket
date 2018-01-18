@@ -46,7 +46,7 @@ namespace Minesweeper
                             
                             eBombs--;
                             mGrid[i, j].BackgroundColour = Resource1.Bomb;
-
+                            mGrid[i, j].Bomb = true;
                         }
                     }
                     if (mGrid.GetLength(0) == 16)
@@ -56,12 +56,13 @@ namespace Minesweeper
                             
                             iBombs--;
                             mGrid[i, j].BackgroundColour = Resource1.Bomb;
+                            mGrid[i, j].Bomb = true;
                         }
                     }
                 }
             }
 
-            Bitmap Temp;
+            Tile Temp = new Tile();
             Random Index = new Random();
             for (int i = 0; i < mGrid.GetLength(0); i++)
             {
@@ -71,33 +72,14 @@ namespace Minesweeper
                     int Column = Index.Next(0, mGrid.GetLength(1) - 1);
 
 
-                    Temp = mGrid[i, j].BackgroundColour;
-                    mGrid[i, j].BackgroundColour = mGrid[Row, Column].BackgroundColour;
-                    mGrid[Row, Column].BackgroundColour = Temp;
+                    Temp = mGrid[i, j];
+                    mGrid[i, j] = mGrid[Row, Column];
+                    mGrid[Row, Column] = Temp;
+
                 }   
             }
 
-            for (int i = 0; i < mGrid.GetLength(0); i++)
-            {
-                for (int j = 0; j < mGrid.GetLength(1); j++)
-                {
-                    if (mGrid[i, j].BackgroundColour == Resource1.Bomb)
-                    {
-                        mGrid[i, j].Bomb = true;
-                    }
-                }
-            }
-
-            for (int i = 0; i < mGrid.GetLength(0); i++)
-            {
-                for (int j = 0; j < mGrid.GetLength(1); j++)
-                {
-                    if (mGrid[i, j].Bomb == true)
-                    {
-                        mGrid[i, j].BackgroundColour = Resource1._1200x630bb;
-                    }
-                }
-            }
+            
 
             for (int i = 0; i < mGrid.GetLength(0); i++)
             {
@@ -179,7 +161,7 @@ namespace Minesweeper
                                 mGrid[i, j].BombCount++;
                             }
                         }
-                        if (j == mGrid.GetLength(1) - 1)
+                        else if (j == mGrid.GetLength(1) - 1)
                         {
                             if (mGrid[i - 1, j - 1].Bomb == true)
                             {
@@ -196,7 +178,7 @@ namespace Minesweeper
                         }
                         else
                         {
-                            if (mGrid[i - 1, j].Bomb == true)
+                            if (mGrid[i - 1, j - 1].Bomb == true)
                             {
                                 mGrid[i, j].BombCount++;
                             }
@@ -204,7 +186,7 @@ namespace Minesweeper
                             {
                                 mGrid[i, j].BombCount++;
                             }
-                            if (mGrid[i, j].Bomb == true)
+                            if (mGrid[i, j - 1].Bomb == true)
                             {
                                 mGrid[i, j].BombCount++;
                             }
@@ -311,37 +293,42 @@ namespace Minesweeper
             {
                 for (int j = 0; j < mGrid.GetLength(1); j++)
                 {
-                    if (mGrid[i, j].BombCount == 1)
+                    if (mGrid[i, j].Bomb == false)
                     {
-                        mGrid[i, j].BackgroundColour = Resource1._76px_Minesweeper_1_svg;
-                    }
-                    if (mGrid[i, j].BombCount == 2)
-                    {
-                        mGrid[i, j].BackgroundColour = Resource1._76px_Minesweeper_2_svg;
-                    }
-                    if (mGrid[i, j].BombCount == 3)
-                    {
-                        mGrid[i, j].BackgroundColour = Resource1._76px_Minesweeper_3_svg;
-                    }
-                    if (mGrid[i, j].BombCount == 4)
-                    {
-                        mGrid[i, j].BackgroundColour = Resource1.Minesweeper_4_svg;
-                    }
-                    if (mGrid[i, j].BombCount == 5)
-                    {
-                        mGrid[i, j].BackgroundColour = Resource1._76px_Minesweeper_5_svg;
-                    }
-                    if (mGrid[i, j].BombCount == 6)
-                    {
-                        mGrid[i, j].BackgroundColour = Resource1._76px_Minesweeper_6_svg;
-                    }
-                    if (mGrid[i, j].BombCount == 7)
-                    {
-                        mGrid[i, j].BackgroundColour = Resource1._76px_Minesweeper_7_svg;
-                    }
-                    if (mGrid[i, j].BombCount == 8)
-                    {
-                        mGrid[i, j].BackgroundColour = Resource1._76px_Minesweeper_8_svg;
+
+
+                        if (mGrid[i, j].BombCount == 1)
+                        {
+                            mGrid[i, j].BackgroundColour = Resource1._76px_Minesweeper_1_svg;
+                        }
+                        if (mGrid[i, j].BombCount == 2)
+                        {
+                            mGrid[i, j].BackgroundColour = Resource1._76px_Minesweeper_2_svg;
+                        }
+                        if (mGrid[i, j].BombCount == 3)
+                        {
+                            mGrid[i, j].BackgroundColour = Resource1._76px_Minesweeper_3_svg;
+                        }
+                        if (mGrid[i, j].BombCount == 4)
+                        {
+                            mGrid[i, j].BackgroundColour = Resource1.Minesweeper_4_svg;
+                        }
+                        if (mGrid[i, j].BombCount == 5)
+                        {
+                            mGrid[i, j].BackgroundColour = Resource1._76px_Minesweeper_5_svg;
+                        }
+                        if (mGrid[i, j].BombCount == 6)
+                        {
+                            mGrid[i, j].BackgroundColour = Resource1._76px_Minesweeper_6_svg;
+                        }
+                        if (mGrid[i, j].BombCount == 7)
+                        {
+                            mGrid[i, j].BackgroundColour = Resource1._76px_Minesweeper_7_svg;
+                        }
+                        if (mGrid[i, j].BombCount == 8)
+                        {
+                            mGrid[i, j].BackgroundColour = Resource1._76px_Minesweeper_8_svg;
+                        }
                     }
                 }
             }

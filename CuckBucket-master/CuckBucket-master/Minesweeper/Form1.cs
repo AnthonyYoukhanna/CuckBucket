@@ -71,13 +71,30 @@ namespace Minesweeper
                     }
                     else
                     {
-                        //Change(Y, X);
+                        
                         ClearSpace(Y, X);
+                        
+                        if (SweepGrid.GetTile(Y,X).Bomb == true)
+                        {
+                            for (int i = 0; i < 9; i++)
+                            {
+                                for (int j = 0; j < 9; j++)
+                                {
+                                    if (SweepGrid.GetTile(i,j).Bomb ==  true)
+                                    {
+                                        SweepGrid.GetTile(i, j).ForegroundColour = Resource1.Bomb;
+                                    }
+                                }
+                            }
+                            SweepGrid.GetTile(Y, X).ForegroundColour = Resource1._1200x630bb;
+
+                            //mesasge box that theyre trash and put options to restart
+
+                        }
+
                         this.Refresh();
                         
                     }
-
-
                 }
 
 
@@ -94,7 +111,28 @@ namespace Minesweeper
                     {
                         //Change(Y, X);
                         ClearSpace(Y, X);
+                        
+                        if (SweepGrid.GetTile(Y, X).Bomb == true)
+                        {
+                            for (int i = 0; i < 16; i++)
+                            {
+                                for (int j = 0; j < 16; j++)
+                                {
+                                    if (SweepGrid.GetTile(i, j).Bomb == true)
+                                    {
+                                        SweepGrid.GetTile(i, j).ForegroundColour = Resource1.Bomb;
+                                    }
+                                }
+                            }
+
+                            SweepGrid.GetTile(Y, X).ForegroundColour = Resource1._1200x630bb;
+
+                            //mesasge box that theyre trash and put options to restart
+                        }
+
+
                         this.Refresh();
+
                     }
                 }
             }
@@ -115,7 +153,13 @@ namespace Minesweeper
                 {
                     return;
                 }
+                if (SweepGrid.GetTile(r, c).BombCount > 0)
+                {
+                    SweepGrid.GetTile(r, c).ForegroundColour = SweepGrid.GetTile(r, c).BackgroundColour;
 
+                    SweepGrid.GetTile(r, c).Click = true;
+                    return;
+                }
                 if (SweepGrid.GetTile(r, c).Click == false)
                 {
                     SweepGrid.GetTile(r, c).ForegroundColour = SweepGrid.GetTile(r, c).BackgroundColour;
@@ -151,7 +195,17 @@ namespace Minesweeper
                 {
                     return;
                 }
+                if (SweepGrid.GetTile(r, c).Bomb == true)
+                {
+                    return;
+                }
+                if (SweepGrid.GetTile(r, c).BombCount > 0)
+                {
+                    SweepGrid.GetTile(r, c).ForegroundColour = SweepGrid.GetTile(r, c).BackgroundColour;
 
+                    SweepGrid.GetTile(r, c).Click = true;
+                    return;
+                }
                 if (SweepGrid.GetTile(r, c).Click == false)
                 {
                     SweepGrid.GetTile(r, c).ForegroundColour = SweepGrid.GetTile(r, c).BackgroundColour;
