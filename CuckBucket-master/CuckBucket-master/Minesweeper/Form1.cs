@@ -55,12 +55,47 @@ namespace Minesweeper
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
+            //finding out what cell is clicked
+                int X = (e.X) / 30;
+                int Y = (e.Y) / 30;
+
+            if (e.Button == MouseButtons.Right)
+            {
+                //if clicked outside grid, roast whoever did that
+                if (PuusyBoi == true)
+                {
+                    if (Y < 0 | Y > 8 | X < 0 | X > 8)
+                    {
+                        MessageBox.Show("stop doing shit u monkey");
+                    }
+                    else
+                    {
+                        if (SweepGrid.GetTile(Y, X).ForegroundColour != SweepGrid.GetTile(Y,X).BackgroundColour)
+                        {
+                            if (SweepGrid.GetTile(Y, X).ForegroundColour == Resource1._76px_Minesweeper_flag_svg)
+                            {
+                                SweepGrid.GetTile(Y, X).ForegroundColour = Resource1._76px_Minesweeper_questionmark_svg;
+                                this.Refresh();
+                            }
+                            else if (SweepGrid.GetTile(Y, X).ForegroundColour == Resource1._76px_Minesweeper_questionmark_svg)
+                            {
+                                SweepGrid.GetTile(Y, X).ForegroundColour = Resource1._76px_Minesweeper_unopened_square_svg;
+                                this.Refresh();
+                            }
+                            else
+                            {
+                                SweepGrid.GetTile(Y, X).ForegroundColour = Resource1._76px_Minesweeper_flag_svg;
+                                this.Refresh();
+                            }
+                        }         
+                    }
+                }
+
+            }
             if (e.Button == MouseButtons.Left)
             {   
 
-                //finding out what cell is clicked
-                int X = (e.X) / 30;
-                int Y = (e.Y) / 30;
+                
 
                 //if clicked outside grid, roast whoever did that
                 if (PuusyBoi == true)
