@@ -12,10 +12,11 @@ namespace Minesweeper
        private int mSize;
        private Bitmap mBackgroundColour;
        private Bitmap mForegroundColour;
-       private Color mBorderColour;
        private bool mBomb;
        private int mBombCount;
        private bool mClick;
+       private bool mFlag;
+       private bool mQuest;
        Rectangle Padding = new Rectangle(0, 0, 30, 30);
 
        public Tile()
@@ -23,7 +24,6 @@ namespace Minesweeper
            this.mSize = 30;
            this.mBackgroundColour = Resource1._76px_Minesweeper_0_svg;
            this.mForegroundColour = Resource1._76px_Minesweeper_unopened_square_svg;
-           this.mBorderColour = Color.White;
 
            
        }
@@ -32,7 +32,6 @@ namespace Minesweeper
        {
            this.mSize = Size;
            this.mBackgroundColour = BackgroundColour;
-           this.mBorderColour = BorderColour;
            this.mForegroundColour = ForegroundColour;
 
        }
@@ -45,16 +44,14 @@ namespace Minesweeper
            //top left corner of the cell
 
            //create a pen and a brush to draw with
-           Pen BorderPen = new Pen(this.mBorderColour);
+          
            TextureBrush BackBrush = new TextureBrush(this.mForegroundColour);
 
            //draw cell
            g.FillRectangle(BackBrush, X, Y - 30, this.mSize, this.mSize);
-           g.DrawRectangle(BorderPen, X, Y + 30, this.mSize, this.mSize);
             
 
            //dispose of drawing objects
-           BorderPen.Dispose();
            BackBrush.Dispose();
 
        }
@@ -78,13 +75,6 @@ namespace Minesweeper
             get { return this.mForegroundColour; }
 
         }
-
-        public Color BorderColour
-        {
-            set { this.mBorderColour = value; }
-            get { return this.mBorderColour; }
-
-        }
        
         public bool Bomb
         {
@@ -98,6 +88,21 @@ namespace Minesweeper
             get { return this.mClick; }
 
         }
+
+        public bool Flag
+        {
+            set { this.mFlag = value; }
+            get { return this.mFlag; }
+
+        }
+
+        public bool Quest
+        {
+            set { this.mQuest = value; }
+            get { return this.mQuest; }
+
+        }
+
         public int BombCount
         {
             set { this.mBombCount = value; }
