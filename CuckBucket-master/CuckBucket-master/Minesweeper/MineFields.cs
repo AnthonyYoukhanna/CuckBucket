@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace Minesweeper
 {
-   public class Grid
+   public class MineFields
     {
        //private fields
        private Tile[,] mGrid;
@@ -17,7 +17,7 @@ namespace Minesweeper
 
        //Constructors
 
-       public Grid(int Rows, int Columns, int TileSize)
+       public MineFields(int Rows, int Columns, int TileSize)
        {
             this.mRows = Rows;
             this.mColumns = Columns;

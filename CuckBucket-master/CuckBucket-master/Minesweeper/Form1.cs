@@ -12,7 +12,7 @@ namespace Minesweeper
 {
     public partial class Form1 : Form
     {
-        Grid SweepGrid;
+        MineFields SweepGrid;
         bool PuusyBoi;
         bool UgandanKnuckles;
         int Time = -1;
@@ -32,7 +32,7 @@ namespace Minesweeper
         private void easyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Graphics g = this.CreateGraphics();
-            SweepGrid = new Grid(9, 9, 30);
+            SweepGrid = new MineFields(9, 9, 30);
             SweepGrid.Draw(g, 0, 30);
             Bombs = 10;
             Time = -1;
@@ -54,7 +54,7 @@ namespace Minesweeper
         private void intermediateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Graphics g = this.CreateGraphics();
-            SweepGrid = new Grid(16, 16, 30);
+            SweepGrid = new MineFields(16, 16, 30);
             SweepGrid.Draw(g, 0, 30);
             Bombs = 40;
             Time = -1;
@@ -125,7 +125,38 @@ namespace Minesweeper
                             this.Refresh();
                         }
 
-                       
+                        for (int i = 0; i < 9; i++)
+                        {
+                            for (int j = 0; j < 9; j++)
+                            {
+                                if (SweepGrid.GetTile(i, j).Click == true)
+                                {
+                                    Win++;
+                                }
+                                if (Win == 71)
+                                {
+                                    for (int r = 0; r < 9; r++)
+                                    {
+                                        for (int c = 0; c < 9; c++)
+                                        {
+                                            if (SweepGrid.GetTile(r, c).Bomb == true)
+                                            {
+                                                SweepGrid.GetTile(r, c).ForegroundColour = Resource1.Bomb;
+                                            }
+                                            SweepGrid.GetTile(r, c).Click = true;
+                                            //message box
+
+                                        }
+                                    }
+                                    i = 9;
+                                    j = 9;
+                                    this.Refresh();
+                                    TimerScore.Stop();
+                                    MessageBox.Show("grats ur not absolute aids");
+                                }
+                            }
+                        }
+                        Win = 0;
                        
 
 
@@ -166,7 +197,38 @@ namespace Minesweeper
                         }
 
 
+                        for (int i = 0; i < 16; i++)
+                        {
+                            for (int j = 0; j < 16; j++)
+                            {
+                                if (SweepGrid.GetTile(i, j).Click == true)
+                                {
+                                    Win++;
+                                }
+                                if (Win == 216)
+                                {
+                                    for (int r = 0; r < 16; r++)
+                                    {
+                                        for (int c = 0; c < 16; c++)
+                                        {
+                                            if (SweepGrid.GetTile(r, c).Bomb == true)
+                                            {
+                                                SweepGrid.GetTile(r, c).ForegroundColour = Resource1.Bomb;
+                                            }
+                                            SweepGrid.GetTile(r, c).Click = true;
+                                            //message box
 
+                                        }
+                                    }
+                                    i = 16;
+                                    j = 16;
+                                    TimerScore.Stop();
+                                    this.Refresh();
+                                    MessageBox.Show("grats ur not absolute aids");
+                                }
+                            }
+                        }
+                        Win = 0;
 
 
                     }
@@ -214,29 +276,40 @@ namespace Minesweeper
                             MessageBox.Show("Dang flabit! You lost! Try again");
                         }
 
-                        if (Bombs == 0)
+                       
+                        for (int i = 0; i < 9; i++)
                         {
-                            for (int i = 0; i < 9; i++)
+                            for (int j = 0; j < 9; j++)
                             {
-                                for (int j = 0; j < 9; j++)
+                                if (SweepGrid.GetTile(i, j).Click == true )
                                 {
-                                    if (SweepGrid.GetTile(Y, X).Bomb == true && SweepGrid.GetTile(Y, X).Flag == true)
+                                    Win++;
+                                }
+                                if (Win == 71)
+                                {
+                                    for (int r = 0; r < 9; r++)
                                     {
-                                        Win++;
-                                    }
-                                    if (Win == 10)
-                                    {
-                                        if (SweepGrid.GetTile(i, j).Bomb == true)
+                                        for (int c = 0; c < 9; c++)
                                         {
-                                            SweepGrid.GetTile(i, j).ForegroundColour = Resource1.Bomb;
+                                            if (SweepGrid.GetTile(r, c).Bomb == true)
+                                            {
+                                                SweepGrid.GetTile(r, c).ForegroundColour = Resource1.Bomb;
+                                            }
+                                            SweepGrid.GetTile(r, c).Click = true;
+                                            //message box
+                                            
                                         }
-                                        SweepGrid.GetTile(i, j).Click = true;
-                                        //message box
-                                        this.Refresh();
                                     }
+                                    i = 9;
+                                    j = 9;
+                                    TimerScore.Stop();
+                                    this.Refresh();
+                                    MessageBox.Show("grats ur not absolute aids");
                                 }
                             }
                         }
+                        Win = 0;
+                        
                         this.Refresh();
                         
                     }
@@ -278,6 +351,38 @@ namespace Minesweeper
                             MessageBox.Show("Dang flabit! You lost! Try again");
                         }
 
+                        for (int i = 0; i < 16; i++)
+                        {
+                            for (int j = 0; j < 16; j++)
+                            {
+                                if (SweepGrid.GetTile(i, j).Click == true)
+                                {
+                                    Win++;
+                                }
+                                if (Win == 216)
+                                {
+                                    for (int r = 0; r < 16; r++)
+                                    {
+                                        for (int c = 0; c < 16; c++)
+                                        {
+                                            if (SweepGrid.GetTile(r, c).Bomb == true)
+                                            {
+                                                SweepGrid.GetTile(r, c).ForegroundColour = Resource1.Bomb;
+                                            }
+                                            SweepGrid.GetTile(r, c).Click = true;
+                                            //message box
+
+                                        }
+                                    }
+                                    i = 16;
+                                    j = 16;
+                                    TimerScore.Stop();
+                                    this.Refresh();
+                                    MessageBox.Show("grats ur not absolute aids");
+                                }
+                            }
+                        }
+                        Win = 0;
 
                         this.Refresh();
 
