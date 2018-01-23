@@ -39,7 +39,7 @@ namespace Minesweeper
             MessageBox.Show("Welcome to Minesweeper! \n\nMinesweeper is a simple puzzle game that challenges your cognitive abilities! " +
             "\n\nMinesweeper is fairly simple. Click anywhere on the grid to open that tile." + 
             " If the tile is a bomb, you lose the game! If the tile is a blank space, then multiple tiles that are connected and are also blank will open." + 
-            "Some tiles are numbers. This number indicates how many bombs are in a 3x3 grid AROUND the tile you clicked." +  
+            " Some tiles are numbers. This number indicates how many bombs are in a 3x3 grid AROUND the tile you clicked." +  
             "\n\nRight clicking a tile, will place a flag on that tile. Right clicking on the flag will then place a question mark on that tile." + 
             " Place a flag when you believe that there is a bomb on that certain tile. \n(HINT: Use the numbers to help you figure this out)" + 
             "\n\nPlacing a flag will lower the bomb counter, and if you have successfully placed a flag on each bomb, you win!" +
